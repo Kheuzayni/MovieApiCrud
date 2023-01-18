@@ -15,22 +15,30 @@ public class MovieServiceImpl implements MovieService {
 
     //Méthode
     @Override
-    public Movie creer() {
-        return null;
+    public Movie creer(Movie movie) {
+        return movieRepository.save(movie);
     }
 
     @Override
     public List<Movie> lire() {
-        return null;
+        return movieRepository.findAll();
     }
 
     @Override
     public Movie modifier(Long id, Movie movie) {
-        return null;
+        return movieRepository.findById(id)
+                .map(m->{
+                    m.setTitle(movie.getTitle());
+                    m.setDescription(movie.getDescription());
+                    m.setYear(movie.getYear());
+                    m.setCover(movie.getCover());
+                    return movieRepository.save(m);
+                }).orElseThrow(() -> new RuntimeException("movie non trouvé, xolatal boubax !!!"));
     }
 
     @Override
     public String supprimer(Long id) {
-        return null;
+        movieRepository.deleteById(id);
+        return "Movie supprimé avec succès";
     }
 }
