@@ -18,7 +18,7 @@ public class Movie {
     @Column(length = 25)
     private String title;
 
-    @Column(length = 25)
+    @Column(length = 255)
     private String description;
 
     private Integer year;
