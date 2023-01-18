@@ -5,7 +5,7 @@ import com.baye.crud.movie.modele.Movie;
 import java.util.List;
 
 public interface MovieService {
-    Movie creer();
+    Movie creer(Movie movie);
 
     List<Movie> lire();
 
