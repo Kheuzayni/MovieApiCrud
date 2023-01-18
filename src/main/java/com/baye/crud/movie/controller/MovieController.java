@@ -29,7 +29,7 @@ public class MovieController {
         return movieService.modifier(id, movie);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable Long id){
         return movieService.supprimer(id);
     }
